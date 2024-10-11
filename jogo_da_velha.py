@@ -1,12 +1,25 @@
 # Example file showing a basic pygame "game loop"
-import pygame
+import pygame #importa a bliblioteca pygame para o script 
 
-# pygame setup
-pygame.init()
-screen = pygame.display.set_mode((500,500))
-pygame.display.set_caption('jogo da velha')
+# pygame setup # pygame configuração 
+pygame.init() # inicialização do pygame
+pygame.font.init()#iniciaçizção do pacote do pygames 
+
+
+screen = pygame.display.set_mode((500,500)) # definição do tamanho da tela 
+pygame.display.set_caption('jogo da velha') # nome da janela do jogo 
 clock = pygame.time.Clock()
+
+
 running = True
+
+fonte_quadrinhos=pygame.font.SysFont('Comic Sans Ms ',100,True,True )
+runnirg=True #variavel de controle do status do jogo 
+
+personagem_x=fonte_quadrinhos.render('x',True,'red')
+personagem_y=fonte_quadrinhos.render('o',True,'red')
+cor_fundo=1
+
 cor_fundo=1 #blue
 #cor_fundo=2 #red
 while running:
@@ -25,11 +38,14 @@ while running:
 
     # RENDER YOUR GAME HERE
     if cor_fundo==1:
-        screen.fill('blue')
+        screen.fill('black')
+        screen.blit(personagem_x,(250,250 ))
+        
     elif cor_fundo==2:
-        screen.fill('red')
+        screen.fill('black')
+        screen.blit(personagem_y,(250,250 ))
     else:
-        screen.fill('purple')
+        screen.fill('black')
     # flip() the display to put your work on screen
     pygame.display.flip()
      
