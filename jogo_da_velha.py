@@ -46,7 +46,7 @@ while running:
         screen.blit(personagem_x,(60,30))#primeiro 
         screen.blit(personagem_y,(260,30))#segundo 
         screen.blit(personagem_y,(460,30))#terceiro
-         
+        screen.blit(personagem_x,(80,380))#setimo
   
     pygame.display.flip()
      
