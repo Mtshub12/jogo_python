@@ -16,6 +16,7 @@ running = True
 fonte_quadrinhos=pygame.font.SysFont('Comic Sans Ms ',100,True,True )
 runnirg=True #variavel de controle do status do jogo 
 
+
 personagem_x=fonte_quadrinhos.render('x',True,'red')
 personagem_y=fonte_quadrinhos.render('o',True,'red')
 cor_fundo=1
