@@ -35,22 +35,18 @@ while running:
                 cor_fundo=1
 
      # desenha tabuleiro 
-        pygame.draw.line(screen,'white',(175,25),(175,475),10)
-        pygame.draw.line(screen,'white',(325,25),(325,475),10)
-        pygame.draw.line(screen,'white',(25,175),(475,175),10)
-        pygame.draw.line(screen,'white',(25,325),(475,325),10)
-
-
-
-    # fill the screen with a color to wipe away anything from last frame
+     #                                  origem    destino
+     #                                  (x , y )  (x , y)
+        pygame.draw.line(screen,'white',(200,0),(200,600),10)
+        pygame.draw.line(screen,'white',(400,0),(400,600),10)
+        pygame.draw.line(screen,'white',(0,200),(600,200),10)
+        pygame.draw.line(screen,'white',(0,400),(600,400),10)
    
-
-    # RENDER YOUR GAME HERE
-    if cor_fundo==1:
-        screen.blit(personagem_x,(220,80 ))
-    elif cor_fundo==2:
-        screen.blit(personagem_y,(440,200 ))
-        
+    #                             x   y 
+        screen.blit(personagem_x,(60,30))#primeiro 
+        screen.blit(personagem_y,(260,30))#segundo 
+        screen.blit(personagem_y,(460,30))#terceiro
+         
   
     pygame.display.flip()
      
