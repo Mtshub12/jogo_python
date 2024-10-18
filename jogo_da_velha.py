@@ -6,7 +6,7 @@ pygame.init() # inicialização do pygame
 pygame.font.init()#iniciaçizção do pacote do pygames 
 
 
-screen = pygame.display.set_mode((500,500)) # definição do tamanho da tela 
+screen = pygame.display.set_mode((600,600)) # definição do tamanho da tela 
 pygame.display.set_caption('jogo da velha') # nome da janela do jogo 
 clock = pygame.time.Clock()
 
@@ -33,20 +33,25 @@ while running:
             cor_fundo=cor_fundo+1
             if(cor_fundo>3):
                 cor_fundo=1
+
+     # desenha tabuleiro 
+        pygame.draw.line(screen,'white',(175,25),(175,475),10)
+        pygame.draw.line(screen,'white',(325,25),(325,475),10)
+        pygame.draw.line(screen,'white',(25,175),(475,175),10)
+        pygame.draw.line(screen,'white',(25,325),(475,325),10)
+
+
+
     # fill the screen with a color to wipe away anything from last frame
    
 
     # RENDER YOUR GAME HERE
     if cor_fundo==1:
-        screen.fill('black')
-        screen.blit(personagem_x,(250,250 ))
-        
+        screen.blit(personagem_x,(220,80 ))
     elif cor_fundo==2:
-        screen.fill('black')
-        screen.blit(personagem_y,(250,250 ))
-    else:
-        screen.fill('black')
-    # flip() the display to put your work on screen
+        screen.blit(personagem_y,(440,200 ))
+        
+  
     pygame.display.flip()
      
     clock.tick(60)  # limits FPS to 60
