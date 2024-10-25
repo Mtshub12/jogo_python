@@ -25,7 +25,7 @@ personagem_y = fonte_quadrinhos.render('o',True,'blue')
 
 jogador_atual = personagem_x # inicializando o jogo com x 
 
-rodadas = 0
+rodadas = 0 # trocando o nome 
 
 cordenada_x = 0
 cordenada_y = 0
