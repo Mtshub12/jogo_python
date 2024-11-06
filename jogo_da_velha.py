@@ -44,7 +44,7 @@ def desenha_tabuleiro(espessura, cor):
     pygame.draw.line(screen, cor ,(0, 400), (600, 400), espessura)
 
 def faz_jogada():
-    print('faz jogada')
+    
 
     global q1, q2, q3, q4, q5, q6, q7, q8, q9
 
@@ -91,6 +91,56 @@ def faz_jogada():
 
     return status
 
+def check_vencedor():
+
+    status = False
+
+    if q1 == q2 == q3 != '':
+        status = True # linha - 1
+        pygame.draw.line(screen, 'blue' ,(50,100), (550, 100), 12)
+
+
+    elif q4 == q5 == q6 != '': 
+        status = True # linha - 2 
+        pygame.draw.line(screen, 'blue' ,(50,300), (550, 300), 12)
+
+
+    elif q7 == q8 == q9 != '':
+        status = True # linha - 3
+        pygame.draw.line(screen, 'blue' ,(50,500), (550, 500), 12)
+
+
+    elif q1 == q4 == q7 != '':
+        status = True # colunas - 1 
+        pygame.draw.line(screen, 'blue' ,(100,30), (100, 550), 12)
+
+
+    elif q2 == q5 == q8 != '':
+        status = True # colunas - 2 
+        pygame.draw.line(screen, 'blue' ,(274,78), (90,100 ), 12)
+
+
+
+    elif q3 == q6 == q9 != '':
+        status = True # colunas - 3 
+        pygame.draw.line(screen, 'blue' ,(50,100), (550, 100), 12)
+
+
+
+    elif  q1 == q5 == q9 != '':
+        status = True # diagonais - 1 
+        pygame.draw.line(screen, 'blue' ,(50,100), (550, 100), 12)
+
+
+
+    elif q3 == q5 == q7 != '':
+        status = True # diagonais - 2
+        pygame.draw.line(screen, 'blue' ,(50,100), (550, 100), 12)
+
+
+
+    return status 
+
 while running:
     # controle de enventos no jgo
     for event in pygame.event.get():
@@ -99,10 +149,10 @@ while running:
             running = False
         # pygame.MOUSEBUTTONDOWN significa evento de click do mouse
         if event.type == pygame.MOUSEBUTTONDOWN:
-            print('Clicou')
+            
             click_pos = pygame.mouse.get_pos() # a posição do mouse quando houve o evento de click
-            print('eixo X:', click_pos[0])
-            print('eixo Y:', click_pos[1])
+            
+            
             coordenada_x = click_pos[0]
             coordenada_y = click_pos[1]
             
@@ -111,7 +161,10 @@ while running:
                 rodadas = 0
                 coordenada_x = 0
                 coordenada_y = 0
+                jogador_atual = personagem_x
                 tabuleiro_desenhado = False
+                break
+
 
             if (faz_jogada()):
                 rodadas = rodadas + 1            
@@ -120,8 +173,9 @@ while running:
                     jogador_atual = personagem_o
                 else:
                     jogador_atual = personagem_x
-          
-           
+
+                if(check_vencedor()):
+                    rodadas = 9
 
     if tabuleiro_desenhado == False:
         desenha_tabuleiro(15, 'white')
